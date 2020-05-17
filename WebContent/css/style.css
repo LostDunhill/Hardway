@@ -1,0 +1,136 @@
+@CHARSET "UTF-8";
+/*
+ * style.css
+ */
+body {
+  padding-top: 0px;
+}
+.container-line{
+	padding-right:15px;
+	padding-left:15px;
+	margin-right:auto;
+	margin-left:auto;
+	background-color:#000000;
+	text-align: center;
+	height: 200px;
+}
+.container-home{
+	padding-right:15px;
+	padding-left:15px;
+	margin-right:auto;
+	margin-left:auto;
+	text-align: center;
+}
+.container-home div {
+    display: inline-block;
+	height: auto;
+	vertical-align: middle;
+}
+.container-line div {
+    display: inline-block;
+	height: auto;
+	vertical-align: middle;
+}
+.container-sample{
+	width: 200px;
+	height: 200px;
+	border: 3px solid #808080;
+}
+.sample-home{
+	padding-right:15px;
+	padding-left:15px;
+	margin-right:auto;
+	margin-left:auto;
+	display: inline-block;
+}
+table#carrinho{
+	border-collapse: collapse;
+	border: 1px solid #c0c0c0;
+}
+table#carrinho thead{
+	background-color: #c0c0c0;
+	border: 1px solid #c0c0c0;
+}
+table#carrinho tbody{
+	border: 1px solid #c0c0c0;
+}
+table#carrinho th, td{
+	text-align: center;
+	width: 300px;
+}
+.container-home{
+	padding-right:15px;
+	padding-left:15px;
+	margin-right:auto;
+	margin-left:auto;
+	text-align: center;
+}
+.btn-red{
+	background-color: #ff3737;
+	color: #ffffff;
+}
+.container-local{
+	height: 300px;
+}
+.right-align{
+	right:0;
+	left:auto
+}
+h3#nomepg{
+	text-align: center;
+}
+div#produtopg{
+	text-align: center;
+}
+div#botoespg{
+	text-align: center;
+}
+div#botoespg div{
+	display: inline-block;
+}
+
+.dropdown1 {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown1 .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: #337ab7;
+  padding: 14px 16px;
+  background-color: #ffffff;
+  margin: 0;
+}
+
+.dropdown1:hover .dropbtn {
+  background-color: #337ab7;
+  color: #ffffff;
+}
+
+.dropdown-content1 {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content1 a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content1 a:hover {
+  background-color: #ddd;
+}
+
+.dropdown1:hover .dropdown-content1 {
+  display: block;
+}
