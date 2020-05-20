@@ -14,14 +14,14 @@
 			<div class="navbar-header">
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<c:forEach var="categoria" items="${categorias }">
+						<c:forEach var="categoria" items="${categorias }"> <!-- Importa um ArrayList com as categorias -->
 							<div class="dropdown1">
 								<button class="dropbtn">
 									${categoria.nome } <i class="fa fa-caret-down"></i>
 								</button>
 								<div class="dropdown-content1">
 									<c:forEach var="subCategoria"
-										items="${categoria.getSubCategorias() }">
+										items="${categoria.getSubCategorias() }"> <!-- Importa as subcategorias da categoria através de um atalho -->
 										<a href="controller.do?command=SelecionarSubCategoria&subcategoria=${subCategoria.id}">${subCategoria.nome }</a>
 									</c:forEach>
 								</div>

@@ -23,13 +23,13 @@
 			<div id="pagamentopg" class="container">
 				<a href="controller.do?command=Pagamento&id=0" id="boleto" class="btn btn-default">Boleto</a>
 				<br> <br>
-				<c:if test="${id == 0}">
+				<c:if test="${id == 0}"> <!-- Teste de id passado pelo sistema -->
 					<c:import url="Boleto.jsp" />
 				</c:if>
 				<br> <br>
 				<a href="controller.do?command=Pagamento&id=1" id="cartao" class="btn btn-default">Cartão de credito</a>
 				<br> <br>
-				<c:if test="${id == 1}">
+				<c:if test="${id == 1}"> <!-- Teste de id passado pelo sistema -->
 					<c:import url="CartaoCredito.jsp" />
 				</c:if>
 			</div>

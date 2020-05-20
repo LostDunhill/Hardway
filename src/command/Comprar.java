@@ -32,15 +32,17 @@ public class Comprar implements Command{
 		String estado = request.getParameter("estado");
 		String complemento = request.getParameter("complemento");
 		String cep = tratarCep(request.getParameter("cep"));
-		
-		double total = (double) session.getAttribute("total"); // pega o valor total compra
+		double total = Double.parseDouble(request.getParameter("total")); // pega o valor total compra
 		
 		Cliente cliente = (Cliente) session.getAttribute("cliente");
 		
 		ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtosCarrinho");
+		if (produtos == null) {
+			produtos = new ArrayList<>();
+		}
 		ArrayList<Produto> produtosEmFalta = verificaDisponibilidadeProdutos(produtos); // verifica se o estoque contém a quantidade dos produtos escolhida pelo cliente
 		
-		if (produtos == null || produtos.size() == 0) { // se não tiver nenhum produto no carrinho ele retorna erro
+		if (produtos.size() == 0) { // se não tiver nenhum produto no carrinho ele retorna erro
 			request.setAttribute("erroCompra", "Não há nenhum produto no carrinho");
 			view = request.getRequestDispatcher("Carrinho.jsp");
 		} else if (produtosEmFalta.size() != 0) { // se o array de produtos em falta for maior do que 0, ele mostra os produtos em falta

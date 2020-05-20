@@ -20,7 +20,17 @@ public class AlteraQuantidade implements Command {
 		
 		ArrayList<Produto> produtosCarrinho = (ArrayList<Produto>) session.getAttribute("produtosCarrinho"); // pega os produtos do carrinho
 		int id = Integer.parseInt(request.getParameter("id")); // pega o id do produto
-		int quantidade = Integer.parseInt(request.getParameter("quantidadeProduto")); // pega a quantidade e converte pra int
+		String quantidadeString = request.getParameter("quantidadeProduto"); // pega a quantidade e converte pra int
+		int quantidade;
+		try {
+			quantidade = Integer.parseInt(quantidadeString);
+			if (quantidade < 1) {
+				quantidade = 1;
+			}
+		} catch(NumberFormatException e) {
+			quantidade = 1;
+		}
+		
 		
 		ProdutoService ps = new ProdutoService(); // instancia o ProdutoService
 		int i = Calcula.indiceProduto(produtosCarrinho, ps.carregar(id)); // pega o indice do produto no ArrayList dos produtoCarrinho

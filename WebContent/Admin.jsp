@@ -24,7 +24,7 @@
 	<br/>
 	<div class="container-fluid">
 		<div id="tblHistorico" class="container col-md-6">
-			<table id="carrinho">
+			<table id="carrinho"> <!-- Tabela com pedidos -->
 				<thead>
 					<tr>
 						<th>Número do Pedido</th>
@@ -48,7 +48,7 @@
 			</table>
 		</div>
 		<div id="tblDeposito" class="container col-md-6">
-			<table id="carrinho">
+			<table id="carrinho"> <!-- Tabela com produtos -->
 				<thead>
 					<tr>
 						<th>ID</th>

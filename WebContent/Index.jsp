@@ -29,9 +29,9 @@
 		<div class="row">
 		<table>
 			<tbody>
-				<c:forEach var="i" begin="0" end="15" step="4">
+				<c:forEach var="i" begin="0" end="15" step="4"> <!-- Linha de produtos (indo de 4 em 4 produtos) -->
 					<tr>
-						<c:forEach var="j" begin="${i}" end="${i+3}">
+						<c:forEach var="j" begin="${i}" end="${i+3}"> <!--Produtos da linha -->
 							<td>
 								<c:if test="${j < produtos.size()}">
 						           	<form action="controller.do" method="get">

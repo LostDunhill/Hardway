@@ -76,7 +76,7 @@
 					<p><strong>Data: </strong> ${pedidoCliente.dataCompra}</p>
 				</div>
 			</div>
-			<c:if test="${pedidoCliente.statusCompra == \"Aguardando envio\"}">
+			<c:if test="${pedidoCliente.statusCompra == \"Aguardando envio\"}"> <!-- Enquanto estivar aguardando envio, aparece o botao para cancelar -->
 				<div id="actions">
 					<div class="row">
 						<a href="controller.do?command=AlterarStatusPedido&numPedido=${pedidoCliente.numPedido}&status=2" class="btn btn-success">Enviar Pedido</a>

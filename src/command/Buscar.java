@@ -21,7 +21,21 @@ public class Buscar implements Command{
 		
 		String chave = request.getParameter("chave"); // pega o que foi digitado no campo de busca
 		
-		if (chave == null || chave.length() < 0) { // se não tiver nada escrito, ele só redireciona pro index
+		if (chave == null || chave.length() == 0) { // se não tiver nada escrito, ele só redireciona pro index
+			// carrega os produtos do banco
+			ProdutoService ps = new ProdutoService();
+			ArrayList<Produto> produtosBanco = ps.carregarProdutos();
+			ArrayList<Produto> produtos = new ArrayList<>();
+			
+			// passa pro ArrayList "produtos" somente os produtos que tem no estoque
+			for (int i = produtosBanco.size() - 1; i >= 0; i--) {
+				Produto produto = produtosBanco.get(i);
+				if (produto.getQtdeEstoque() > 0) {
+					produtos.add(produto);
+				}
+			}
+			
+			session.setAttribute("produtos", produtos);
 			view = request.getRequestDispatcher("Index.jsp");
 		} else { // se não, ele procura os itens no banco que tem nome parecido com a "chave" e que tenha a quantidade no estoque maior que zero e exibe para o usuário
 			ProdutoService ps = new ProdutoService(); // instancia ProdutoService

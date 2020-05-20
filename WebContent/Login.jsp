@@ -40,9 +40,10 @@
 <body>
 	<jsp:include page="Cabecalho.jsp" />
 	<jsp:include page="NavBar.jsp" />
-	<div id="main" class="container col-md-6">
+	<div id="main" class="container">
+		<div class="col-md-6">
 		<h3 class="page-header">Faça seu Cadastro:</h3>
-		<c:if test="${erroCadastro != null}">
+		<c:if test="${erroCadastro != null}"> <!-- Teste de erro de cadastro -->
 			<h5 style="color:red">${erroCadastro}</h5>
 		</c:if>
 		<form action="controller.do" method="post">
@@ -61,12 +62,12 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="form-group col-md-6">
+				<div class="form-group col-md-12">
 					<label for="cdcpf">CPF:</label> <input type="text"
 						class="form-control" name="cdcpf" id="cdcpf" onkeydown="javascript: fMasc( this, mCPF );" required
 						maxlength="14" placeholder="Digite seu CPF" />
 				</div>
-				<div class="form-group col-md-6">
+				<div class="form-group col-md-12">
 					<label for="cdrg">RG:</label> <input type="text"
 						class="form-control" name="cdrg" id="cdrg" onkeydown="javascript: fMasc( this, mRG );" required maxlength="12"
 						placeholder="Digite seu RG" />
@@ -93,20 +94,19 @@
 			</div>
 			<hr />
 			<div id="actions1" class="row col-xs">
-				<div class="col-xs-4">
+				<div class="col-xs-9">
 					<a href="Index.jsp" class="btn btn-default">Voltar</a>
 				</div>
-				<div class="col-xs-6">
+				<div class="col-xs-3 text-right">
 					<input type="hidden" name="pagina" value="${pagina}">
-					<button type="submit" class="btn btn-primary" name="command" value="CadastroCliente">Continuar</button>
+					<button type="submit" class="btn btn-primary" name="command" value="CadastroCliente">Cadastrar</button>
 				</div>
 			</div>
 		</form>
-	</div>
-	<div id="main2" class="container col-md-6">
-
+		</div>
+		<div class="col-md-6">
 		<h3 class="page-header">Login:</h3>
-		<c:if test="${erro != null}">
+		<c:if test="${erro != null}"> <!-- Teste de erro de login -->
 			<h5 style="color:red">${erro}</h5>
 		</c:if>
 		<form action="controller.do" method="post">
@@ -126,12 +126,16 @@
 			</div>
 			<hr />
 			<div id="actions2" class="row">
-				<div class="col-md-6">
+				<div class="col-md-12 text-right">
 					<input type="hidden" name="pagina" value="${pagina}">
-					<button type="submit" class="btn btn-primary" name="command" value="Login">Continuar</button>
+					<button type="submit" class="btn btn-primary" name="command" value="Login">Login</button>
 				</div>
 			</div>
 		</form>
+		</div>			
+	</div>
+	<div id="main2" class="container col-md-6">
+
 	</div>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

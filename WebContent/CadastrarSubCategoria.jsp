@@ -17,10 +17,7 @@
 	<c:import url="CabecalhoAdmin.jsp"/>
     <div id="main" class="container">
         <h3 class="page-header">${titulo}:</h3>
-        <c:if test="${msg != null}">
-        	<h5 style="color:green;">${msg}</h5>
-        </c:if>
-        <c:if test="${erro != null}">
+        <c:if test="${erro != null}"> <!-- Teste para indicar erros -->
         	<h5 style="color:red;">${erro}</h5>
         </c:if>
         <form action="controller.do" method="post">
@@ -33,10 +30,10 @@
 	        <div class="row">
 	            <div class="form-group col-md-12">
 	            	<label for="cdcategoria">Categoria:</label>
-	            	<select name="cdcategoria" class="form-control">
+	            	<select name="cdcategoria" class="form-control"> <!-- select das sub categorias -->
 	            		<c:forEach var="categoria" items="${categorias}">
 	            			<c:if test="${idCategoria == categoria.id }">
-	            				<option selected="selected" value="${categoria.id}">${categoria.nome}</option>
+	            				<option selected="selected" value="${categoria.id}">${categoria.nome}</option> <!-- Se ele estiver vindo pra editar, ele já pré-seleciona a categoria da sub categoria -->
 	            			</c:if>
 	            			<c:if test="${idCategoria != categoria.id }">
 	            				<option value="${categoria.id}">${categoria.nome}</option>
@@ -48,7 +45,7 @@
 	        <div id="actions" class="row">
 	        	<div class="form-group col-md-12">
 	               <a href="controller.do?command=VisualizarSubCategorias" class="btn btn-default">Voltar</a>
-	               <button type="submit" class="btn btn-primary" name="command" value="${command}">${titulo}</button>
+	               <button type="submit" class="btn btn-primary" name="command" value="${command}">${titulo}</button> <!-- value = command passado pelo sistema, para indicar se cria ou altera -->
 	            </div>
 	        </div>
         </form>

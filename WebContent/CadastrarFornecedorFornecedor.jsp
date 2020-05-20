@@ -17,7 +17,7 @@
 	<c:import url="CabecalhoAdmin.jsp"/>
     <div id="main" class="container-fluid col-md-6">
         <h3 class="page-header">${titulo}:</h3>
-        <c:if test="${erro != null}">
+        <c:if test="${erro != null}"> <!-- Teste para indicar erros -->
         	<h5 style="color:red;">${erro}</h5>
         </c:if>
         <form action="controller.do" method="post">
@@ -47,7 +47,7 @@
 	        </div>
 	        <div id="actions1" class="container-home">
 	               <a href="controller.do?command=VisualizarFornecedores" class="btn btn-default">Voltar</a>
-	               <button type="submit" class="btn btn-primary" name="command" value="${command}">${titulo}</button>
+	               <button type="submit" class="btn btn-primary" name="command" value="${command}">${titulo}</button> <!-- value = command passado pelo sistema, para indicar se cria ou altera -->
 	        </div>
         </form>
     </div>

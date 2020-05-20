@@ -9,11 +9,11 @@
 	<div class="row center-hr">
 		<div id="logo">
 			<img src="img/hardway_fp.jpg" class="img-responsive" alt="Hardway"
-				onclick="location.href='Index.jsp'" style="padding-top: 20px; padding-right:30px;" />
+				onclick="location.href='Index.jsp'" style="padding-top: 20px; padding-right:30px;" /> <!-- Componente de imagem, onclick = ao clicar -->
 		</div>
 		<div id="barraPesquisa">
 			<form action="controller.do" method="get">
-				<c:if test="${cliente != null && cliente.nome != \"guest\"}">
+				<c:if test="${cliente != null && cliente.nome != \"guest\"}"> <!-- Condição para diferenciar cabeçalho do usuario e "convidado" -->
 						<div style="padding-right: 15px; padding-left: 15px;">
 							<strong style="color: white;">Seja bem-vindo(a),
 								${cliente.nome}</strong>

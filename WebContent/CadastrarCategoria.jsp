@@ -17,7 +17,7 @@
 	<c:import url="CabecalhoAdmin.jsp"/>
     <div id="main" class="container">
         <h3 class="page-header">${titulo}:</h3>
-        <c:if test="${erro != null}">
+        <c:if test="${erro != null}"> <!-- Teste para indicar erros -->
         	<h5 style="color:red;">${erro}</h5>
         </c:if>
         <form action="controller.do" method="post" accept-charset="UTF-8">
@@ -30,7 +30,7 @@
 	        <div id="actions" class="row">
 	        	<div class="form-group col-md-12">
 	               <a href="controller.do?command=VisualizarCategorias" class="btn btn-default">Voltar</a>
-	               <button type="submit" class="btn btn-primary" name="command" value="${command}">${titulo}</button>
+	               <button type="submit" class="btn btn-primary" name="command" value="${command}">${titulo}</button> <!-- value = command passado pelo sistema, para indicar se cria ou altera -->
 	            </div>
 	        </div>
         </form>

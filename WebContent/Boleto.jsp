@@ -8,6 +8,7 @@
 <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+	<!-- Script q cria a mascara, editando a entrada de dados -->
 	<script type="text/javascript">
 		function fMasc(objeto, mascara) {
 			obj = objeto
@@ -23,13 +24,6 @@
 			cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2")
 			cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2")
 			return cpf
-		}
-		function mRG(rg) {
-			rg = rg.replace(/\D/g, "")
-			rg = rg.replace(/(\d{2})(\d)/, "$1.$2")
-			rg = rg.replace(/(\d{3})(\d)/, "$1.$2")
-			rg = rg.replace(/(\d{3})(\d{1,2})$/, "$1-$2")
-			return rg
 		}
 	</script>
 

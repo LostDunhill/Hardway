@@ -36,7 +36,7 @@
 
 	<div class="container">
 		<div class="container">
-			<c:if test="${erroCompra != null}">
+			<c:if test="${erroCompra != null}"> <!-- Teste de erro com a quantidade de produto -->
 				<h5 style="color: red;">${erroCompra}</h5>
 				<c:forEach var="produto" items="${disponibilidadeProdutos}">
 					<p>${produto.nome} - Quantidade em estoque: ${produto.qtdeEstoque}</p>
@@ -60,14 +60,13 @@
 								<td><fmt:formatNumber value="${produto.preco }"
 										type="currency" /></td>
 								<td>
-									<form action="controller.do" method="post">
+									<form action="controller.do" method="post"> <!-- Form para alterar a quantidade de produtos do carrinho -->
 										<input type="hidden" name="command" value="AlteraQuantidade" />
 										<input type="hidden" name="id" value="${produto.id}" /> 
 										<input type="text" name="quantidadeProduto" value="${produto.quantidade}" class="form-control" maxlength="3"/>
 									</form>
 								</td>
-								<td><fmt:formatNumber
-										value="${produto.preco * produto.quantidade}" type="currency" /></td>
+								<td><fmt:formatNumber value="${produto.preco * produto.quantidade}" type="currency" /></td> <!-- Formatação para moeda -->
 								<td>
 									<form action="controller.do" method="post">
 										<input type="hidden" name="id" value="${produto.id}" />
@@ -92,7 +91,7 @@
 			<c:if test="${erro != null}">
 				<h5 style="color: red;">${erro}</h5>
 			</c:if>
-			<form action="controller.do" method="post">
+			<form action="controller.do" method="post"> <!-- Form para calcular o frete -->
 				<div class="row">
 					<div class="form-group col-md-4">
 						<input id="cep" type="text" class="form-control" name="cep" onkeydown="javascript: fMasc( this, mCEP );"
@@ -105,8 +104,10 @@
 					</div>
 				</div>
 			</form>
-
-			<c:if test="${rua != null}">
+			<c:if test= "${cep == null}"> 
+				<span ><a id="btnvoltar" class="btn btn-default" href="Index.jsp">Continuar comprando</a></span>
+			</c:if>
+			<c:if test="${rua != null}"> <!-- Teste para aparecer formulario preenchido com alguns dados do endereço -->
 				<form action="controller.do" method="post">
 					<div class="row">
 						<div class="form-group col-md-4">
@@ -150,6 +151,7 @@
 					<div class="row form-group">
 					<div class="col-md-2"> 
 						<input type="hidden" name="cep" value="${cep}"/>
+						<input type="hidden" name="total" value="${valorFrete + total}"/>
 						<a id="btnvoltar" class="btn btn-default " href="Index.jsp">Continuar comprando</a>
 						</div>
 						<div class="col-md-2">
@@ -159,9 +161,7 @@
 				</form>
 			</c:if>
 		</div>
-		<c:if test= "${cep == null}"> 
-				<span class="pull-left"><a id="btnvoltar" class="btn btn-default" href="Index.jsp">Continuar comprando</a></span>
-		</c:if>
+		
 	</div>
 
 

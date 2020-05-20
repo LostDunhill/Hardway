@@ -45,17 +45,17 @@
 	        <div class="row">
 	            <div class="form-group col-md-12">
 	            	<label for="cdimagem">Imagem:</label>
-	            	<input type="hidden" name="imagem" value="${imagem}">
-	            	<input type="file" accept="image/.png/.jpeg"class="form-control" name="cdimagem" id="cdimagem" placeholder="Insira a imagem do produto"/>
+	            	<input type="hidden" name="imagem" value="${imagem}"> <!-- pega imagem base64 antiga cadastrada -->
+	            	<input type="file" accept="image/.png/.jpeg"class="form-control" name="cdimagem" id="cdimagem" placeholder="Insira a imagem do produto"/> <!-- pega imagem base64 nova pra cadastrar -->
 	            </div>
 	        </div>
 	        <div class="row">
 	        	<div class="form-group col-md-12">
 	        		<label for="cdfornecedor">Fornecedor:</label>
 	        		<select name="cdfornecedor" class="form-control">
-	        			<c:forEach var="fornecedor" items="${fornecedores}">
+	        			<c:forEach var="fornecedor" items="${fornecedores}"> <!-- select dos fornecedores -->
 	        				<c:if test="${idFornecedor == fornecedor.id}">
-	        					<option selected="selected" value="${fornecedor.id}">${fornecedor.nome}</option>
+	        					<option selected="selected" value="${fornecedor.id}">${fornecedor.nome}</option> <!-- Se ele estiver vindo pra editar, ele já pré-seleciona o fornecedor do produto -->
 	        				</c:if>
 	        				<c:if test="${idFornecedor != fornecedor.id}">
 	        					<option value="${fornecedor.id}">${fornecedor.nome}</option>
@@ -68,9 +68,9 @@
 	        	<div class="form-group col-md-12">
 	        		<label for="cdsubcategoria">Sub Categoria:</label>
 	        		<select name="cdsubcategoria" class="form-control">
-						<c:forEach var="subCategoria" items="${subCategorias}">	        			
+						<c:forEach var="subCategoria" items="${subCategorias}"> <!-- select das sub categorias -->	        			
 	        				<c:if test="${idSubCategoria == subCategoria.id}">
-	        					<option selected="selected" value="${subCategoria.id}">${subCategoria.nome}</option>
+	        					<option selected="selected" value="${subCategoria.id}">${subCategoria.nome}</option> <!-- Se ele estiver vindo pra editar, ele já pré-seleciona a sub categoria do produto -->
 	        				</c:if>
 	        				<c:if test="${idSubCategoria != subCategoria.id}">
 	        					<option value="${subCategoria.id}">${subCategoria.nome}</option>
@@ -81,7 +81,7 @@
 	        </div>
 	        <div id="actions1" class="container-home">
 	               <a href="Admin.jsp" class="btn btn-default">Voltar</a>
-	               <button type="submit" class="btn btn-primary" name="command" value="${command}">${titulo}</button>
+	               <button type="submit" class="btn btn-primary" name="command" value="${command}">${titulo}</button> <!-- value = command passado pelo sistema, para indicar se cria ou altera -->
 	        </div>
         </form>
     </div>
